@@ -6,13 +6,13 @@ let port = process.env.PORT || 5000;
 const app = express();
 
 
-// let bodyParser = require('body-parser');
-// app.use(
-//     bodyParser.urlencoded({
-//       extended: false
-//     })
-//   );
-//   app.use(bodyParser.json());
+let bodyParser = require('body-parser');
+app.use(
+    bodyParser.urlencoded({
+      extended: false
+    })
+  );
+  app.use(bodyParser.json());
   
 
 mongoose.connect(url, {useNewUrlParser:true});
@@ -22,7 +22,7 @@ con.on('open',function(){
     console.log('connected....');
 });
 
-app.use(express.json());
+//app.use(express.json());
 
 const routeto = require('./routers/students');
 app.use('/students',routeto);
