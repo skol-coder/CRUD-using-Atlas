@@ -1,6 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const url = 'mongodb+srv://student_dba:student_dba@cluster0.vtcph.mongodb.net/StudentDB?retryWrites=true&w=majority';
+require('dotenv').config();
+
+const url = process.env.MONGOURL;
+
 let port = process.env.PORT || 5000;
 
 const app = express();
